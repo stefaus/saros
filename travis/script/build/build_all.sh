@@ -2,6 +2,9 @@
 
 [ ! -z "$DEBUG_BASH" ] && set -x
 
+# Move into Docker env if done
+apt-get update && apt-get install gradle
+
 $SCRIPT_DIR/build/build_eclipse.sh
 $SCRIPT_DIR/build/build_intellij.sh
 # following build steps are conditional
