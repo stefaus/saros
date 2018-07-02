@@ -2,6 +2,8 @@
 title: Home
 ---
 
+{% include tocbar.html %}
+
 ![Comic: Distributed Pair
 Programmers](images/comics/dpp_0.png){:class="center"}
 

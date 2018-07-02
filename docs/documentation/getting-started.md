@@ -2,9 +2,6 @@
 title: Getting Started
 ---
 
-# {{ page.title }}
-{:.no_toc}
-
 ## What is Saros? What is it not?
 
 ### Saros is an Open Source IDE plugin for distributed collaborative software development.
@@ -44,8 +41,7 @@ title: Getting Started
 *   That means for instance that it does not support joint
     interactive [testing](host-comic.md).
 
- Saros can be used in various scenarios:
-----------------------------------------
+## Saros can be used in various scenarios
 
 * **Joint review**                      
 
