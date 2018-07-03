@@ -5,8 +5,8 @@
 
 .logo img {
   float: left;
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
   border-style: none;
   box-shadow: none;
 }
@@ -15,18 +15,27 @@
   text-decoration: none;
 }
 
-.logo h1 h2 {
-  position: relative;
-  top: 18px;
-  left: 10px;
+.active a {
+  color: black;
+}
+
+.navbar {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.navbar-brand small {
+  display:block;
+  font-size:12px;
+}
+
+#copyright {
+  color: #949494;
+  float: left;
 }
 
 #impressum {
   text-decoration: none;
-  float: left;
-}
-
-.twitter-follow-button {
   float: right;
 }
 
@@ -37,12 +46,13 @@
 }
 
 #header_wrap .inner {
-  padding-bottom: 0;
+  padding: 0;
 }
+
 
 .sidenav {
   position: relative;
-  height: 100%; /* Full-height: remove this if you want "auto" height */
+  height: 100%;
   float:left;
   padding-top: 20px;
 }
@@ -58,7 +68,6 @@
 .sidenav a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
-  color: #818181;
   display: block;
 }
 
