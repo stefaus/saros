@@ -114,10 +114,6 @@ Want to know more about the Saros host role? Check out our comic
     they won't be copied to the client) and the client's side (otherwise
     the files will be deleted on synchronization).
 
-------------------------------------------------------------------------
-
-Exploring Saros
----------------
 
 ### Step 4: Exploring the Saros View
 

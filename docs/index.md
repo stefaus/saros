@@ -29,7 +29,7 @@ For more comments read on
 * [Features Overview](features.md)
 * [Bug tracker](https://sourceforge.net/p/dpp/bugs/)
 
-## Get Saros Quickly
+## [Get Saros](/downloads/)
 
 * Eclipse update site @ Heroku:
   <https://get-saros.herokuapp.com/eclipse/>

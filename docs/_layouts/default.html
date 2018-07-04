@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: "en-US" }}">
+<html lang="{{ site.lang | default: 'en-US' }}">
 
   <head>
     <meta charset='utf-8'>
@@ -25,8 +25,11 @@
 
     {% if page.url contains '/documentation' %}
       {% assign sidebar_data = site.data.documentation.sidebar %}
-      {% include sidebar.html %}
+    {% elsif page.url contains '/contribute' %}
+      {% assign sidebar_data = site.data.contribute.sidebar %}
     {% endif %}
+
+    {% include sidebar.html %}
 
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">

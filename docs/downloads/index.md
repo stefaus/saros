@@ -8,8 +8,8 @@ See the [installation documentation](/documentation/installation.md) for more in
 
 ## Eclipse Update Site
 
-* Update site @Heroku: https://get-saros.herokuapp.com/eclipse/
-* Update site @SourceForge: http://dpp.sf.net/update
+* Update site @Heroku: <https://get-saros.herokuapp.com/eclipse/>
+* Update site @SourceForge: <http://dpp.sf.net/update>
 
 ## Eclipse Dropin
 
