@@ -4,22 +4,33 @@ buildscript {
   }
 }
 
+plugins {
+  id 'com.gradle.build-scan' version '1.15.1'
+}
+
+// Use gradle scan plugin and service
+buildScan {
+ termsOfServiceUrl = 'https://gradle.com/terms-of-service'
+ termsOfServiceAgree = 'yes'
+ publishOnFailure()
+}
+
+apply plugin: 'eclipse'
+
 subprojects {
 
   group = 'saros'
   version = '1.0'
+
+  apply plugin: 'eclipse'
 
   apply plugin: 'java'
   apply plugin: 'jacoco'
   apply plugin: 'osgi'
 
   repositories {
-    maven {
-      url 'https://raw.githubusercontent.com/maven-eclipse/swt-repo/master'
-    }
-    maven {
-      url 'https://maven.atlassian.com/3rdparty/'
-    }
+    maven { url 'https://raw.githubusercontent.com/maven-eclipse/swt-repo/master' }
+    maven { url 'https://maven.atlassian.com/3rdparty/' }
     mavenCentral()
   }
 
@@ -27,6 +38,14 @@ subprojects {
     testing
     testConfig
     releaseDep
+
+    releaseDep.transitive = false
+  }
+
+  test {
+    testLogging {
+        events "passed", "skipped", "failed", "standardOut", "standardError"
+    }
   }
 
   dependencies {
@@ -39,6 +58,9 @@ subprojects {
     testConfig 'org.javassist:javassist:3.18.0-GA'
     testConfig 'cglib:cglib-nodep:2.2.2'
   }
+  it.ext.eclipsePluginDir = project.hasProperty('eclipsePluginDir') ? eclipsePluginDir  : '/'
+  it.ext.intellijLibDir = project.hasProperty('intellijLibDir') ? intellijLibDir  : '/'
 }
 
 task clean(dependsOn: subprojects*.name.collect{":$it:clean"})
+

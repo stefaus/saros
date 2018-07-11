@@ -18,17 +18,6 @@ dependencies {
   testCompile configurations.testConfig
 }
 
-sourceSets {
-  main.java.srcDirs = ['src']
-  main {
-    resources {
-      srcDirs = ['resources/']
-    }
-  }
-  test {
-    java.srcDir 'test/junit/'
-  }
-}
 test {
   exclude '**/Abstract*'
   exclude '**/*TestSuite*'
@@ -40,24 +29,18 @@ jar {
     instruction 'Manifest-Version', '1.0'
   }
   version = null
-  into ('META-INF')
-  {
-    from 'META-INF/plugin.xml'
-  }
-  from 'src/saros.log4j.properties'
 
   from sourceSets.main.output
 }
 
 task releaseZip(type: Zip, dependsOn: jar) {
   into ("${project.name}/lib") {
-    // Add intellij jar
     from jar
-    from project(':de.fu_berlin.inf.dpp.core').jar
     from project(':de.fu_berlin.inf.dpp.ui').jar
+    from project(':de.fu_berlin.inf.dpp.core').jar
 
-    // Add release dependencies of dependent subprojects
-    from project(':de.fu_berlin.inf.dpp.core').configurations.getByName('releaseDep')
     from project(':de.fu_berlin.inf.dpp.ui').configurations.getByName('releaseDep')
+    from project(':de.fu_berlin.inf.dpp.core').configurations.getByName('releaseDep')
   }
 }
+

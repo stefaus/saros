@@ -1,0 +1,46 @@
+dependencies {
+  compile project(':de.fu_berlin.inf.dpp.core')
+  compile project(':de.fu_berlin.inf.dpp.ui')
+  compile project(path: ':de.fu_berlin.inf.dpp.core', configuration: 'testing')
+  compile project(path: ':de.fu_berlin.inf.dpp.ui', configuration: 'testing')
+
+  compile fileTree(dir: eclipsePluginDir, include: '*.jar', exclude: '*commons.lang*')
+  compile fileTree(dir: 'lib', include: '*.jar')
+
+  // This is very ugly but necessary in order to build stf together with saros eclipse
+  compile configurations.testConfig
+}
+
+sourceSets {
+  main.java.srcDirs = ['src/main/java/',
+                       'ext-src',
+                       'test/framework/stf/src/',
+                       'test/framework/stf/test/',
+                       'src/test/java',
+                       'src/stf_test/java']
+}
+
+test {
+  exclude '**/Abstract*'
+  exclude '**/*TestSuite*'
+}
+
+tasks.withType(Test) {
+  enableAssertions = false
+}
+
+jar {
+  manifest {
+    from file('META-INF/MANIFEST.MF')
+    attributes('-removeheaders': 'Import-Package')
+  }
+  from sourceSets.main.output
+
+  into('lib') {
+    from 'lib'
+    exclude '*source*.jar'
+  }
+  into('.') {
+    from 'plugin.xml'
+  }
+}

@@ -10,15 +10,9 @@ jar {
     attributes('-removeheaders': 'Import-Package')
   }
   from sourceSets.main.output
-
-  into('lib') {
-    from 'lib'
-    exclude '*source*.jar'
-  }
 }
 
-sourceSets.main.java.srcDirs =  ['src', 'ext-src']
-sourceSets.test.java.srcDir 'test'
+sourceSets.main.java.srcDirs =  ['src/main/java', 'ext-src']
 
 test {
   exclude '**/Abstract*'

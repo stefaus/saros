@@ -9,23 +9,24 @@ dependencies {
   releaseDep 'xpp3:xpp3:1.1.4c'
   releaseDep 'com.thoughtworks.xstream:xstream:1.4.1'
   releaseDep 'org.gnu.inet:libidn:1.15'
-  releaseDep 'log4j:log4j:1.2.17'
+  releaseDep 'log4j:log4j:1.2.15'
   // The used version is a SNAPSHOT version which is not available!
   // TODO: use real release
   releaseDep files('lib/weupnp.jar')
-  compile configurations.releaseDep
 
+  compile configurations.releaseDep
   testCompile configurations.testConfig
 }
 
-sourceSets.main.java.srcDirs = ['src', 'patches']
-sourceSets.test.java.srcDir 'test'
+sourceSets.main.java.srcDirs = ['src/main/java', 'patches']
+sourceSets.test.java.srcDir 'src/test/java'
 
 jar {
   manifest {
-    from file('META-INF/MANIFEST.MF')
+    from 'META-INF/MANIFEST.MF'
     attributes('-removeheaders': 'Import-Package')
   }
+
   from sourceSets.main.output
 
   into('lib') {

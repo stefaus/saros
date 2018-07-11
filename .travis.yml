@@ -4,6 +4,9 @@ sudo: enabled
 notifications:
   email: false
 
+install:
+  - true
+
 git:
   depth: false
 
